@@ -493,6 +493,15 @@ button:hover{background:var(--red)}
   margin:6px 0;
 }
 
+
+.submit-note{
+  margin:12px 0 0;
+  font-size:13px;
+  color:#555;
+  line-height:1.45;
+  text-align:center;
+}
+
 /* FOOTER */
 footer{
   background:var(--blue);
@@ -583,25 +592,119 @@ footer{
 
 /* MOBILE */
 @media(max-width:900px){
-  .nav{justify-content:center}
+  .nav{justify-content:center;padding:18px 5%}
   nav{display:none}
-  .hero{height:auto;min-height:720px}
-  .hero-inner{padding:105px 6% 60px;align-items:flex-start}
-  .hero-title-row{flex-direction:column;gap:20px}
-  .hero-logo{width:125px;height:125px;min-width:125px}
-  .hero h1{font-size:38px}
-  .hero p{font-size:23px}
-  .hero-divider{width:260px}
+
+  .hero{
+    height:auto;
+    min-height:100svh;
+  }
+
+  .hero-bg{
+    object-position:center top;
+  }
+
+  .hero-overlay{
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,.72) 0%, rgba(0,0,0,.45) 36%, rgba(0,0,0,.74) 100%);
+  }
+
+  .hero-inner{
+    min-height:100svh;
+    padding:78px 6% 48px;
+    align-items:center;
+  }
+
+  .hero-title-row{
+    width:100%;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    text-align:center;
+    max-width:none;
+  }
+
+  .hero-logo{
+    width:118px;
+    height:118px;
+    min-width:118px;
+  }
+
+  .hero-content{
+    max-width:640px;
+  }
+
+  .hero h1{
+    font-size:clamp(30px, 7.2vw, 42px);
+    line-height:1.08;
+    letter-spacing:.35px;
+  }
+
+  .hero p{
+    margin:0 auto 24px;
+    font-size:clamp(19px, 5vw, 24px);
+    max-width:560px;
+  }
+
+  .hero-divider{
+    width:min(280px, 72vw);
+    margin:22px auto;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .hero-social{
+    justify-content:center;
+  }
+
   .features-grid,.activities-grid,.persons-grid{grid-template-columns:1fr}
+  .feature-card{border-right:none;border-bottom:2px solid rgba(255,255,255,.8)}
   .feature-card img{height:300px}
   .about-container{grid-template-columns:1fr}
   .footer-container{flex-direction:column}
 }
 
 @media(max-width:520px){
-  .hero h1{font-size:31px}
-  .hero p{font-size:20px}
-  .hero-buttons a{width:100%;text-align:center}
+  .hero-inner{
+    padding:64px 5% 42px;
+  }
+
+  .hero-logo{
+    width:96px;
+    height:96px;
+    min-width:96px;
+  }
+
+  .hero h1{
+    font-size:clamp(25px, 8.3vw, 32px);
+  }
+
+  .hero p{
+    font-size:18px;
+  }
+
+  .hero-buttons a{
+    width:100%;
+    text-align:center;
+    padding:15px 20px;
+  }
+
+  .hero-social a{
+    justify-content:center;
+    min-width:132px;
+  }
+
+  .form-container{
+    padding:28px 18px;
+  }
+
+  .form-heading{
+    flex-direction:column;
+    text-align:center;
+  }
+
   .floating-ctas{right:14px;bottom:14px;gap:9px}
   .floating-ctas a{width:50px;height:50px}
 }
@@ -763,7 +866,11 @@ footer{
       </div>
     </div>
 
-    <form>
+    <form action="https://formsubmit.co/udruzenje.hercegovacasd@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Нова приступница - Удружење Срба из Старе Херцеговине">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_autoresponse" value="Хвала Вам. Ваша приступница је примљена. Удружење ће Вас контактирати у најкраћем року.">
       <input type="text" name="ime_prezime" placeholder="Име и презиме" required>
       <input type="text" name="jmbg" placeholder="ЈМБГ" required>
       <input type="text" name="adresa_stanovanja" placeholder="Адреса становања" required>
@@ -778,6 +885,7 @@ footer{
       </label>
 
       <button type="submit">ПОШАЉИ ПРИЈАВУ</button>
+      <p class="submit-note">Након слања, подаци из приступнице биће прослеђени на email удружења.</p>
     </form>
 
     <div class="form-info">
