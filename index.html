@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Удружење Срба из Старе Херцеговине</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#071f3d;
+  --blue2:#12345a;
+  --red:#b92824;
+  --gold:#d4af62;
+  --cream:#f7f2e8;
+  --text:#1d1d1d;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  color:var(--text);
+  background:#fff;
+}
+
+/* HEADER */
+#header{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:20;
+  background:linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,0));
+  transition:.3s ease;
+}
+
+#header.scrolled{
+  position:fixed;
+  background:rgba(7,31,61,.95);
+  box-shadow:0 8px 25px rgba(0,0,0,.22);
+}
+
+.nav{
+  max-width:1400px;
+  margin:auto;
+  padding:24px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:28px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:.2px;
+  text-shadow:0 1px 3px rgba(0,0,0,.45);
+  transition:.25s ease;
+}
+
+nav a:hover{color:var(--gold)}
+
+.cta-nav{
+  background:var(--red);
+  padding:12px 18px;
+  border-radius:8px;
+  box-shadow:0 8px 18px rgba(185,40,36,.28);
+}
+
+/* HERO */
+.hero{
+  min-height:760px;
+  height:88vh;
+  position:relative;
+  overflow:hidden;
+  background:#111;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  z-index:0;
+  transform:none;
+  filter:contrast(1.06) saturate(1.04);
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    radial-gradient(circle at 72% 28%, rgba(255,170,58,.10), transparent 30%),
+    linear-gradient(to right, rgba(0,0,0,.76) 0%, rgba(0,0,0,.48) 34%, rgba(0,0,0,.18) 63%, rgba(0,0,0,.10) 100%);
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  max-width:1400px;
+  margin:auto;
+  height:100%;
+  padding:120px 5% 70px;
+  display:flex;
+  align-items:center;
+}
+
+.hero-title-row{
+  display:flex;
+  align-items:flex-start;
+  gap:28px;
+  max-width:880px;
+}
+
+.hero-logo{
+  width:170px;
+  height:170px;
+  min-width:170px;
+  border-radius:50%;
+  object-fit:cover;
+  background:#fff;
+  padding:0;
+  box-shadow:0 12px 32px rgba(0,0,0,.45);
+}
+
+.hero-content{
+  color:white;
+  max-width:680px;
+}
+
+.hero h1{
+  margin:0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:56px;
+  line-height:1.05;
+  letter-spacing:.8px;
+  font-weight:700;
+  text-transform:uppercase;
+  text-shadow:0 4px 18px rgba(0,0,0,.78);
+}
+
+.hero h1 span{
+  color:var(--gold);
+}
+
+.hero-divider{
+  width:360px;
+  height:1px;
+  margin:28px 0;
+  background:linear-gradient(to right, transparent, var(--gold), transparent);
+  position:relative;
+}
+
+.hero-divider::after{
+  content:"✦";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  color:var(--gold);
+  background:transparent;
+  font-size:22px;
+}
+
+.hero p{
+  margin:0 0 30px;
+  color:#fff;
+  font-family:'Cormorant Garamond',serif;
+  font-size:27px;
+  line-height:1.35;
+  max-width:600px;
+  text-shadow:0 3px 12px rgba(0,0,0,.72);
+}
+
+.hero-buttons{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.hero-buttons a{
+  display:inline-block;
+  padding:17px 28px;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:700;
+  letter-spacing:.3px;
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
+  transition:.25s ease;
+}
+
+.hero-buttons a:hover{
+  transform:translateY(-3px);
+}
+
+.btn-red{background:var(--red)}
+.btn-blue{background:var(--blue2)}
+
+/* FEATURES */
+.features{
+  padding:0;
+  background:#fff;
+}
+
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+
+.feature-card{
+  position:relative;
+  overflow:hidden;
+  min-height:300px;
+  border-right:2px solid rgba(255,255,255,.8);
+}
+
+.feature-card:last-child{border-right:none}
+
+.feature-card img{
+  width:100%;
+  height:330px;
+  display:block;
+  object-fit:cover;
+  transition:.45s ease;
+  filter:contrast(1.08) saturate(1.04);
+}
+
+.feature-card:hover img{transform:scale(1.055)}
+
+.feature-card .overlay{
+  position:absolute;
+  inset:0;
+  color:white;
+  padding:32px 24px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  justify-content:flex-start;
+  background:linear-gradient(to bottom, rgba(0,0,0,.42), rgba(0,0,0,.18), rgba(0,0,0,.58));
+}
+
+.feature-card h3{
+  margin:0 0 12px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:31px;
+  line-height:1.1;
+  text-shadow:0 3px 12px rgba(0,0,0,.75);
+}
+
+/* ABOUT */
+.about{
+  padding:90px 5%;
+  background:#fff;
+}
+
+.about-container{
+  max-width:1180px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:60px;
+}
+
+.about h2,
+.activities h2,
+.persons h2,
+.pristupnica h2{
+  margin:0 0 28px;
+  font-family:'Cormorant Garamond',serif;
+  color:var(--blue);
+  font-size:42px;
+  letter-spacing:.5px;
+}
+
+.about p{
+  font-size:17px;
+  line-height:1.75;
+}
+
+.about-image{
+  position:relative;
+}
+
+.about-image img{
+  width:100%;
+  border-radius:12px;
+  display:block;
+  box-shadow:0 18px 45px rgba(0,0,0,.16);
+}
+
+.caption{
+  position:absolute;
+  right:0;
+  bottom:0;
+  background:rgba(7,31,61,.94);
+  color:white;
+  padding:20px 26px;
+  border-radius:12px 0 12px 0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;
+}
+
+/* ACTIVITIES */
+.activities{
+  padding:85px 5%;
+  background:var(--cream);
+  text-align:center;
+}
+
+.activities-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.activity-card{
+  padding:42px 20px;
+  background:#fff;
+  border-radius:12px;
+  color:#777;
+  font-weight:700;
+  box-shadow:0 12px 32px rgba(0,0,0,.08);
+}
+
+/* PERSONS */
+.persons{
+  padding:90px 5%;
+  text-align:center;
+  background:#fff;
+}
+
+.persons-grid{
+  max-width:1280px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:18px;
+}
+
+.person{
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 12px 28px rgba(0,0,0,.09);
+  transition:.25s ease;
+}
+
+.person:hover{transform:translateY(-5px)}
+
+.person img{
+  width:100%;
+  height:220px;
+  display:block;
+  object-fit:cover;
+  filter:contrast(1.04);
+}
+
+.person h3{
+  margin:0;
+  padding:14px 10px 18px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;
+  color:var(--blue);
+}
+
+
+.person a{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+}
+
+.person .learn-more{
+  display:block;
+  padding:0 10px 16px;
+  font-size:13px;
+  font-weight:700;
+  color:var(--red);
+}
+
+/* FORM */
+.pristupnica{
+  padding:90px 5%;
+  background:var(--cream);
+}
+
+.form-container{
+  max-width:760px;
+  margin:auto;
+  background:#fff;
+  padding:44px;
+  border-radius:14px;
+  box-shadow:0 18px 46px rgba(0,0,0,.12);
+}
+
+.form-heading{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:28px;
+  border-bottom:1px solid rgba(7,31,61,.14);
+  padding-bottom:22px;
+}
+
+.form-heading img{
+  width:86px;
+  height:86px;
+  object-fit:cover;
+  border-radius:50%;
+  box-shadow:0 8px 22px rgba(0,0,0,.18);
+}
+
+.form-heading h2{
+  margin:0 0 6px;
+}
+
+.form-heading p{
+  margin:0;
+  color:#555;
+  line-height:1.45;
+}
+
+form input,form textarea{
+  width:100%;
+  margin-bottom:14px;
+  padding:14px 15px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+}
+
+form textarea{min-height:120px}
+
+.consent{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  text-align:left;
+  font-size:14px;
+  line-height:1.45;
+  color:#444;
+  margin:4px 0 18px;
+}
+
+.consent input{
+  width:auto;
+  margin-top:3px;
+}
+
+button{
+  width:100%;
+  padding:15px;
+  background:var(--blue);
+  color:white;
+  border:none;
+  border-radius:8px;
+  font-weight:700;
+  cursor:pointer;
+  letter-spacing:.3px;
+}
+
+button:hover{background:var(--red)}
+
+.form-info{
+  margin-top:24px;
+  padding:18px;
+  border-radius:10px;
+  background:var(--cream);
+  text-align:left;
+  font-size:14px;
+  color:#333;
+}
+
+.form-info p{
+  margin:6px 0;
+}
+
+/* FOOTER */
+footer{
+  background:var(--blue);
+  color:white;
+  padding:55px 5%;
+}
+
+.footer-container{
+  max-width:1180px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+}
+
+/* FLOATING CONTACT CTAS */
+.floating-ctas{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:60;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.floating-ctas a{
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  color:white;
+  text-decoration:none;
+  font-weight:800;
+  font-size:22px;
+  box-shadow:0 12px 28px rgba(0,0,0,.32);
+  transition:.25s ease;
+  border:1px solid rgba(255,255,255,.25);
+}
+
+.floating-ctas a:hover{
+  transform:translateY(-4px) scale(1.04);
+}
+
+.cta-whatsapp{background:#25D366}
+.cta-facebook{background:#1877F2}
+.cta-instagram{
+  background:radial-gradient(circle at 30% 110%, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);
+}
+
+.cta-whatsapp svg,
+.cta-facebook svg,
+.cta-instagram svg{
+  width:27px;
+  height:27px;
+  fill:currentColor;
+}
+
+.hero-social{
+  margin-top:22px;
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+}
+
+.hero-social a{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:10px 15px;
+  border-radius:999px;
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:700;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(6px);
+  transition:.25s ease;
+}
+
+.hero-social a:hover{
+  background:rgba(212,175,98,.22);
+  transform:translateY(-2px);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .nav{justify-content:center}
+  nav{display:none}
+  .hero{height:auto;min-height:720px}
+  .hero-inner{padding:105px 6% 60px;align-items:flex-start}
+  .hero-title-row{flex-direction:column;gap:20px}
+  .hero-logo{width:125px;height:125px;min-width:125px}
+  .hero h1{font-size:38px}
+  .hero p{font-size:23px}
+  .hero-divider{width:260px}
+  .features-grid,.activities-grid,.persons-grid{grid-template-columns:1fr}
+  .feature-card img{height:300px}
+  .about-container{grid-template-columns:1fr}
+  .footer-container{flex-direction:column}
+}
+
+@media(max-width:520px){
+  .hero h1{font-size:31px}
+  .hero p{font-size:20px}
+  .hero-buttons a{width:100%;text-align:center}
+  .floating-ctas{right:14px;bottom:14px;gap:9px}
+  .floating-ctas a{width:50px;height:50px}
+}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+  <div class="nav">
+    <nav>
+      <a href="#">Почетна</a>
+      <a href="#about">О нама</a>
+      <a href="#persons">Личности</a>
+      <a href="#activities">Активности</a>
+      <a href="#pristupnica" class="cta-nav">Приступница</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img class="hero-bg" src="images/Hero.jpg" alt="Смедеревска тврђава и породица у херцеговачкој ношњи">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner">
+    <div class="hero-title-row">
+      <img class="hero-logo" src="images/Logo Udruženja Hercegovaca.jpg" onerror="this.onerror=null;this.src='images/Logo Udruženja Hercegovaca.jpeg';" alt="Лого удружења">
+
+      <div class="hero-content">
+        <h1>
+          УДРУЖЕЊЕ СРБА<br>
+          ИЗ СТАРЕ ХЕРЦЕГОВИНЕ<br>
+          <span>И ПРИЈАТЕЉА У СМЕДЕРЕВУ</span>
+        </h1>
+
+        <div class="hero-divider"></div>
+
+        <p>
+          Чувамо корене, негујемо традицију и повезујемо људе кроз заједништво,
+          културу и припадност.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#pristupnica" class="btn-red">ПРИСТУПНИЦА</a>
+          <a href="#about" class="btn-blue">САЗНАЈТЕ ВИШЕ</a>
+        </div>
+
+        <div class="hero-social">
+          <a href="https://www.facebook.com/share/16prkrcV5a/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/udruzenje_hecegovaca_sd/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="features-grid">
+    <div class="feature-card"><img src="images/koreni.jpg" alt="Чувамо корене"><div class="overlay"><h3>Чувамо корене</h3></div></div>
+    <div class="feature-card"><img src="images/tradicija.jpg" alt="Негујемо традицију"><div class="overlay"><h3>Негујемо традицију</h3></div></div>
+    <div class="feature-card"><img src="images/zajednistvo.jpg" alt="Повезујемо људе"><div class="overlay"><h3>Повезујемо људе</h3></div></div>
+    <div class="feature-card"><img src="images/zavicaj.jpg" alt="Снага из завичаја"><div class="overlay"><h3>Снага из завичаја</h3></div></div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="about-container">
+    <div>
+      <h2>О НАМА</h2>
+      <p>Удружење „Срби из Старе Херцеговине и пријатељи - Смедерево“ је добровољна, невладина и непрофитна организација основана ради очувања културног, историјског и националног идентитета Срба пореклом из Старе Херцеговине и њихових пријатеља.</p>
+      <p>Основни циљеви удружења су очување традиције, обичаја и културног наслеђа, повезивање људи, развој културних, образовних и друштвених активности, као и промоција природних вредности, туризма и гастрономије.</p>
+    </div>
+
+    <div class="about-image">
+      <img src="images/Rade_Dobranic.jpeg" onerror="this.onerror=null;this.src='images/Rade_Dobranic.jpg';" alt="Раде Добрaнић">
+      <div class="caption">Председник — Раде Добрaнић</div>
+    </div>
+  </div>
+</section>
+
+<section id="activities" class="activities">
+  <h2>АКТИВНОСТИ УДРУЖЕЊА</h2>
+  <div class="activities-grid">
+    <div class="activity-card">УСКОРО</div>
+    <div class="activity-card">УСКОРО</div>
+    <div class="activity-card">УСКОРО</div>
+    <div class="activity-card">УСКОРО</div>
+  </div>
+</section>
+
+<section id="persons" class="persons">
+  <h2>ПОЗНАТЕ ЛИЧНОСТИ СРПСКЕ ХЕРЦЕГОВИНЕ</h2>
+  <div class="persons-grid">
+    <div class="person">
+      <a href="https://sr.wikipedia.org/wiki/%D0%A1%D0%B2%D0%B5%D1%82%D0%B8_%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D0%B8%D1%98%D0%B5_%D0%9E%D1%81%D1%82%D1%80%D0%BE%D1%88%D0%BA%D0%B8" target="_blank" rel="noopener">
+        <img src="images/Saint_Basil_of_Ostrog.jpg" alt="Свети Василије Острошки">
+        <h3>Свети Василије Острошки</h3>
+        <span class="learn-more">Сазнајте више</span>
+      </a>
+    </div>
+
+    <div class="person">
+      <a href="https://sr.wikipedia.org/wiki/%D0%88%D0%BE%D0%B2%D0%B0%D0%BD_%D0%94%D1%83%D1%87%D0%B8%D1%9B" target="_blank" rel="noopener">
+        <img src="images/Jovan_Ducic.jpg" alt="Јован Дучић">
+        <h3>Јован Дучић</h3>
+        <span class="learn-more">Сазнајте више</span>
+      </a>
+    </div>
+
+    <div class="person">
+      <a href="https://sr.wikipedia.org/wiki/%D0%A1%D0%B0%D0%B2%D0%B0_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D1%81%D0%BB%D0%B0%D0%B2%D0%B8%D1%9B_%D0%A0%D0%B0%D0%B3%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8" target="_blank" rel="noopener">
+        <img src="images/Sava_Vladislavic-Raguzinski.jpg" onerror="this.onerror=null;this.src='images/Sava_Vladislavic_Raguzinski.jpg';" alt="Сава Владиславић Рагузински">
+        <h3>Сава Владиславић</h3>
+        <span class="learn-more">Сазнајте више</span>
+      </a>
+    </div>
+
+    <div class="person">
+      <a href="https://www.google.com/search?client=firefox-b-d&q=Akesa+%C5%A0anti%C4%87" target="_blank" rel="noopener">
+        <img src="images/Aleksa_Santic.jpg" alt="Алекса Шантић">
+        <h3>Алекса Шантић</h3>
+        <span class="learn-more">Сазнајте више</span>
+      </a>
+    </div>
+
+    <div class="person">
+      <a href="https://sr.wikipedia.org/wiki/%D0%9B%D1%83%D0%BA%D0%B0_%D0%92%D1%83%D0%BA%D0%B0%D0%BB%D0%BE%D0%B2%D0%B8%D1%9B" target="_blank" rel="noopener">
+        <img src="images/Luka_Vukalovic.jpg" alt="Лука Вукаловић">
+        <h3>Лука Вукаловић</h3>
+        <span class="learn-more">Сазнајте више</span>
+      </a>
+    </div>
+
+    <div class="person">
+      <a href="https://sr.wikipedia.org/sr-el/%D0%9B%D1%83%D0%BA%D0%B0_%D0%8B%D0%B5%D0%BB%D0%BE%D0%B2%D0%B8%D1%9B" target="_blank" rel="noopener">
+        <img src="images/Luka_Celovic.jpg" alt="Лука Ћеловић">
+        <h3>Лука Ћеловић</h3>
+        <span class="learn-more">Сазнајте више</span>
+      </a>
+    </div>
+
+    <div class="person">
+      <a href="https://sr.wikipedia.org/wiki/%D0%96%D0%B0%D0%BD%D0%B0_%D0%9C%D0%B5%D1%80%D0%BA%D1%83%D1%81" target="_blank" rel="noopener">
+        <img src="images/Zana_Merkus.jpg" alt="Жана Меркус">
+        <h3>Жана Меркус</h3>
+        <span class="learn-more">Сазнајте више</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="pristupnica" class="pristupnica">
+  <div class="form-container">
+    <div class="form-heading">
+      <img src="images/Logo Udruženja Hercegovaca.jpg" onerror="this.onerror=null;this.src='images/Logo Udruženja Hercegovaca.jpeg';" alt="Лого удружења">
+      <div>
+        <h2>ПРИСТУПНИЦА</h2>
+        <p>Удружење „Срби из Старе Херцеговине и пријатељи - Смедерево“</p>
+      </div>
+    </div>
+
+    <form>
+      <input type="text" name="ime_prezime" placeholder="Име и презиме" required>
+      <input type="text" name="jmbg" placeholder="ЈМБГ" required>
+      <input type="text" name="adresa_stanovanja" placeholder="Адреса становања" required>
+      <input type="text" name="mesto_stanovanja" placeholder="Место становања" required>
+      <input type="tel" name="telefon" placeholder="Број телефона" required>
+      <input type="email" name="email" placeholder="Email адреса">
+      <textarea name="napomena" placeholder="Напомена"></textarea>
+
+      <label class="consent">
+        <input type="checkbox" required>
+        Сагласан/на сам да Удружење обради наведене податке у сврху евиденције чланства и контакта.
+      </label>
+
+      <button type="submit">ПОШАЉИ ПРИЈАВУ</button>
+    </form>
+
+    <div class="form-info">
+      <p><strong>Адреса удружења:</strong> Проте Матеје Ненадовића 83, Смедерево</p>
+      <p><strong>Телефон:</strong> +381 63 211 548</p>
+      <p><strong>Email:</strong> udruzenje.hercegovacasd@gmail.com</p>
+      <p><strong>ПИБ:</strong> 115486252 · <strong>МБ:</strong> 28409460</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div>
+      <p>Проте Матеје Ненадовића 83, Смедерево</p>
+      <p>+381 63 211 548</p>
+      <p>udruzenje.hercegovacasd@gmail.com</p>
+    </div>
+
+    <div>
+      <p>ПИБ: 115486252</p>
+      <p>МБ: 28409460</p>
+    </div>
+  </div>
+</footer>
+
+<div class="floating-ctas">
+  <a class="cta-whatsapp" href="https://wa.me/38163211548" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.84 11.84 0 0 0 12.07 0C5.5 0 .17 5.33.17 11.9c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.9 11.9 0 0 0 5.77 1.47h.01c6.57 0 11.9-5.33 11.9-11.9a11.84 11.84 0 0 0-3.46-8.44zM12.08 21.8h-.01a9.88 9.88 0 0 1-5.04-1.38l-.36-.21-3.73.98 1-3.64-.24-.38a9.85 9.85 0 0 1-1.51-5.27c0-5.46 4.44-9.9 9.91-9.9a9.85 9.85 0 0 1 7 2.9 9.85 9.85 0 0 1 2.9 7c0 5.46-4.45 9.9-9.92 9.9zm5.43-7.42c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+  </a>
+</div>
+
+<script>
+window.addEventListener("scroll",function(){
+  document.getElementById("header").classList.toggle("scrolled",window.scrollY>50);
+});
+</script>
+
+</body>
+</html>
