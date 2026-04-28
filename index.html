@@ -6,7 +6,10 @@
 
 <title>Удружење Срба из Старе Херцеговине</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Удружење Срба из Старе Херцеговине и пријатеља у Смедереву — очување традиције, корена, културе и заједништва.">
+<link rel="icon" href="images/Logo Udruženja Hercegovaca.jpeg">
+<link rel="preload" as="image" href="images/Hero.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="images/Logo Udruženja Hercegovaca.jpeg">
 
 <style>
 :root{
@@ -24,7 +27,7 @@ html{scroll-behavior:smooth}
 
 body{
   margin:0;
-  font-family:'Inter',sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   color:var(--text);
   background:#fff;
 }
@@ -141,7 +144,7 @@ nav a:hover{color:var(--gold)}
 
 .hero h1{
   margin:0;
-  font-family:'Cormorant Garamond',serif;
+  font-family:Georgia,'Times New Roman',serif;
   font-size:56px;
   line-height:1.05;
   letter-spacing:.8px;
@@ -176,7 +179,7 @@ nav a:hover{color:var(--gold)}
 .hero p{
   margin:0 0 30px;
   color:#fff;
-  font-family:'Cormorant Garamond',serif;
+  font-family:Georgia,'Times New Roman',serif;
   font-size:27px;
   line-height:1.35;
   max-width:600px;
@@ -212,6 +215,8 @@ nav a:hover{color:var(--gold)}
 .features{
   padding:0;
   background:#fff;
+  content-visibility:auto;
+  contain-intrinsic-size:900px;
 }
 
 .features-grid{
@@ -255,7 +260,7 @@ nav a:hover{color:var(--gold)}
 
 .feature-card h3{
   margin:0 0 12px;
-  font-family:'Cormorant Garamond',serif;
+  font-family:Georgia,'Times New Roman',serif;
   font-size:31px;
   line-height:1.1;
   text-shadow:0 3px 12px rgba(0,0,0,.75);
@@ -265,6 +270,8 @@ nav a:hover{color:var(--gold)}
 .about{
   padding:90px 5%;
   background:#fff;
+  content-visibility:auto;
+  contain-intrinsic-size:850px;
 }
 
 .about-container{
@@ -281,7 +288,7 @@ nav a:hover{color:var(--gold)}
 .persons h2,
 .pristupnica h2{
   margin:0 0 28px;
-  font-family:'Cormorant Garamond',serif;
+  font-family:Georgia,'Times New Roman',serif;
   color:var(--blue);
   font-size:42px;
   letter-spacing:.5px;
@@ -311,7 +318,7 @@ nav a:hover{color:var(--gold)}
   color:white;
   padding:20px 26px;
   border-radius:12px 0 12px 0;
-  font-family:'Cormorant Garamond',serif;
+  font-family:Georgia,'Times New Roman',serif;
   font-size:24px;
 }
 
@@ -320,6 +327,8 @@ nav a:hover{color:var(--gold)}
   padding:85px 5%;
   background:var(--cream);
   text-align:center;
+  content-visibility:auto;
+  contain-intrinsic-size:520px;
 }
 
 .activities-grid{
@@ -344,6 +353,8 @@ nav a:hover{color:var(--gold)}
   padding:90px 5%;
   text-align:center;
   background:#fff;
+  content-visibility:auto;
+  contain-intrinsic-size:900px;
 }
 
 .persons-grid{
@@ -375,7 +386,7 @@ nav a:hover{color:var(--gold)}
 .person h3{
   margin:0;
   padding:14px 10px 18px;
-  font-family:'Cormorant Garamond',serif;
+  font-family:Georgia,'Times New Roman',serif;
   font-size:20px;
   color:var(--blue);
 }
@@ -399,6 +410,8 @@ nav a:hover{color:var(--gold)}
 .pristupnica{
   padding:90px 5%;
   background:var(--cream);
+  content-visibility:auto;
+  contain-intrinsic-size:850px;
 }
 
 .form-container{
@@ -443,7 +456,7 @@ form input,form textarea{
   padding:14px 15px;
   border:1px solid #ddd;
   border-radius:8px;
-  font-family:'Inter',sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   font-size:15px;
 }
 
@@ -507,6 +520,8 @@ footer{
   background:var(--blue);
   color:white;
   padding:55px 5%;
+  content-visibility:auto;
+  contain-intrinsic-size:320px;
 }
 
 .footer-container{
@@ -581,7 +596,6 @@ footer{
   font-weight:700;
   background:rgba(255,255,255,.12);
   border:1px solid rgba(255,255,255,.25);
-  backdrop-filter:blur(6px);
   transition:.25s ease;
 }
 
@@ -591,6 +605,14 @@ footer{
 }
 
 /* MOBILE */
+@media (prefers-reduced-motion:reduce){
+  *{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+}
+
 @media(max-width:900px){
   .nav{justify-content:center;padding:18px 5%}
   nav{display:none}
@@ -726,12 +748,12 @@ footer{
 </header>
 
 <section class="hero">
-  <img class="hero-bg" src="images/Hero.jpg" alt="Смедеревска тврђава и породица у херцеговачкој ношњи">
+  <img class="hero-bg" src="images/Hero.jpg" width="1920" height="1080" alt="Смедеревска тврђава и породица у херцеговачкој ношњи" fetchpriority="high" loading="eager" decoding="async">
   <div class="hero-overlay"></div>
 
   <div class="hero-inner">
     <div class="hero-title-row">
-      <img class="hero-logo" src="images/Logo Udruženja Hercegovaca.jpeg" alt="Лого удружења">
+      <img class="hero-logo" src="images/Logo Udruženja Hercegovaca.jpeg" width="170" height="170" alt="Лого удружења" fetchpriority="high" loading="eager" decoding="async">
 
       <div class="hero-content">
         <h1>
@@ -763,10 +785,10 @@ footer{
 
 <section class="features">
   <div class="features-grid">
-    <div class="feature-card"><img src="images/koreni.jpg" alt="Чувамо корене"><div class="overlay"><h3>Чувамо корене</h3></div></div>
-    <div class="feature-card"><img src="images/tradicija.jpg" alt="Негујемо традицију"><div class="overlay"><h3>Негујемо традицију</h3></div></div>
-    <div class="feature-card"><img src="images/zajednistvo.jpg" alt="Повезујемо људе"><div class="overlay"><h3>Повезујемо људе</h3></div></div>
-    <div class="feature-card"><img src="images/zavicaj.jpg" alt="Снага из завичаја"><div class="overlay"><h3>Снага из завичаја</h3></div></div>
+    <div class="feature-card"><img src="images/koreni.jpg" width="480" height="330" loading="lazy" decoding="async" alt="Чувамо корене"><div class="overlay"><h3>Чувамо корене</h3></div></div>
+    <div class="feature-card"><img src="images/tradicija.jpg" width="480" height="330" loading="lazy" decoding="async" alt="Негујемо традицију"><div class="overlay"><h3>Негујемо традицију</h3></div></div>
+    <div class="feature-card"><img src="images/zajednistvo.jpg" width="480" height="330" loading="lazy" decoding="async" alt="Повезујемо људе"><div class="overlay"><h3>Повезујемо људе</h3></div></div>
+    <div class="feature-card"><img src="images/zavicaj.jpg" width="480" height="330" loading="lazy" decoding="async" alt="Снага из завичаја"><div class="overlay"><h3>Снага из завичаја</h3></div></div>
   </div>
 </section>
 
@@ -779,7 +801,7 @@ footer{
     </div>
 
     <div class="about-image">
-      <img src="images/Rade_Dobranic.jpeg" onerror="this.onerror=null;this.src='images/Rade_Dobranic.jpg';" alt="Раде Добрaнић">
+      <img src="images/Rade_Dobranic.jpeg" width="700" height="520" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/Rade_Dobranic.jpg';" alt="Раде Добрaнић">
       <div class="caption">Председник — Раде Добрaнић</div>
     </div>
   </div>
@@ -800,7 +822,7 @@ footer{
   <div class="persons-grid">
     <div class="person">
       <a href="https://sr.wikipedia.org/wiki/%D0%A1%D0%B2%D0%B5%D1%82%D0%B8_%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D0%B8%D1%98%D0%B5_%D0%9E%D1%81%D1%82%D1%80%D0%BE%D1%88%D0%BA%D0%B8" target="_blank" rel="noopener">
-        <img src="images/Saint_Basil_of_Ostrog.jpg" alt="Свети Василије Острошки">
+        <img src="images/Saint_Basil_of_Ostrog.jpg" width="220" height="220" loading="lazy" decoding="async" alt="Свети Василије Острошки">
         <h3>Свети Василије Острошки</h3>
         <span class="learn-more">Сазнајте више</span>
       </a>
@@ -808,7 +830,7 @@ footer{
 
     <div class="person">
       <a href="https://sr.wikipedia.org/wiki/%D0%88%D0%BE%D0%B2%D0%B0%D0%BD_%D0%94%D1%83%D1%87%D0%B8%D1%9B" target="_blank" rel="noopener">
-        <img src="images/Jovan_Ducic.jpg" alt="Јован Дучић">
+        <img src="images/Jovan_Ducic.jpg" width="220" height="220" loading="lazy" decoding="async" alt="Јован Дучић">
         <h3>Јован Дучић</h3>
         <span class="learn-more">Сазнајте више</span>
       </a>
@@ -816,7 +838,7 @@ footer{
 
     <div class="person">
       <a href="https://sr.wikipedia.org/wiki/%D0%A1%D0%B0%D0%B2%D0%B0_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D1%81%D0%BB%D0%B0%D0%B2%D0%B8%D1%9B_%D0%A0%D0%B0%D0%B3%D1%83%D0%B7%D0%B8%D0%BD%D1%81%D0%BA%D0%B8" target="_blank" rel="noopener">
-        <img src="images/Sava_Vladislavic_Raguzinski.jpg" alt="Сава Владиславић Рагузински">
+        <img src="images/Sava_Vladislavic_Raguzinski.jpg" width="220" height="220" loading="lazy" decoding="async" alt="Сава Владиславић Рагузински">
         <h3>Сава Владиславић</h3>
         <span class="learn-more">Сазнајте више</span>
       </a>
@@ -824,7 +846,7 @@ footer{
 
     <div class="person">
       <a href="https://www.google.com/search?client=firefox-b-d&q=Akesa+%C5%A0anti%C4%87" target="_blank" rel="noopener">
-        <img src="images/Aleksa_Santic.jpg" alt="Алекса Шантић">
+        <img src="images/Aleksa_Santic.jpg" width="220" height="220" loading="lazy" decoding="async" alt="Алекса Шантић">
         <h3>Алекса Шантић</h3>
         <span class="learn-more">Сазнајте више</span>
       </a>
@@ -832,7 +854,7 @@ footer{
 
     <div class="person">
       <a href="https://sr.wikipedia.org/wiki/%D0%9B%D1%83%D0%BA%D0%B0_%D0%92%D1%83%D0%BA%D0%B0%D0%BB%D0%BE%D0%B2%D0%B8%D1%9B" target="_blank" rel="noopener">
-        <img src="images/Luka_Vukalovic.jpg" alt="Лука Вукаловић">
+        <img src="images/Luka_Vukalovic.jpg" width="220" height="220" loading="lazy" decoding="async" alt="Лука Вукаловић">
         <h3>Лука Вукаловић</h3>
         <span class="learn-more">Сазнајте више</span>
       </a>
@@ -840,7 +862,7 @@ footer{
 
     <div class="person">
       <a href="https://sr.wikipedia.org/sr-el/%D0%9B%D1%83%D0%BA%D0%B0_%D0%8B%D0%B5%D0%BB%D0%BE%D0%B2%D0%B8%D1%9B" target="_blank" rel="noopener">
-        <img src="images/Luka_Celovic.jpg" alt="Лука Ћеловић">
+        <img src="images/Luka_Celovic.jpg" width="220" height="220" loading="lazy" decoding="async" alt="Лука Ћеловић">
         <h3>Лука Ћеловић</h3>
         <span class="learn-more">Сазнајте више</span>
       </a>
@@ -848,7 +870,7 @@ footer{
 
     <div class="person">
       <a href="https://sr.wikipedia.org/wiki/%D0%96%D0%B0%D0%BD%D0%B0_%D0%9C%D0%B5%D1%80%D0%BA%D1%83%D1%81" target="_blank" rel="noopener">
-        <img src="images/Zana_Merkus.jpg" alt="Жана Меркус">
+        <img src="images/Zana_Merkus.jpg" width="220" height="220" loading="lazy" decoding="async" alt="Жана Меркус">
         <h3>Жана Меркус</h3>
         <span class="learn-more">Сазнајте више</span>
       </a>
@@ -859,7 +881,7 @@ footer{
 <section id="pristupnica" class="pristupnica">
   <div class="form-container">
     <div class="form-heading">
-      <img src="images/Logo Udruženja Hercegovaca.jpeg" alt="Лого удружења">
+      <img src="images/Logo Udruženja Hercegovaca.jpeg" width="86" height="86" loading="lazy" decoding="async" alt="Лого удружења">
       <div>
         <h2>ПРИСТУПНИЦА</h2>
         <p>Удружење „Срби из Старе Херцеговине и пријатељи - Смедерево“</p>
