@@ -708,11 +708,31 @@ footer{
 
   .form-container{
     padding:28px 18px;
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
   }
 
   .form-heading{
     flex-direction:column;
     text-align:center;
+  }
+
+  .pristupnica{
+    padding:70px 4%;
+  }
+
+  .form-heading h2{
+    font-size:clamp(30px, 9vw, 40px);
+    line-height:1.05;
+    letter-spacing:.2px;
+    white-space:normal;
+  }
+
+  .form-heading p{
+    max-width:100%;
+    font-size:16px;
+    line-height:1.35;
   }
 
   .floating-ctas{right:14px;bottom:14px;gap:9px}
